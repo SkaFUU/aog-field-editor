@@ -119,7 +119,7 @@ function zip(files) {
 // ISOXML (ISO 11783-10, TASKDATA.XML Version 4): Schlag mit Grenze (PLN/LSG) und Spuren (GGP/GPN)
 function toISOXML(items, sel) {
   const pnt = (p, type) => `<PNT A="${type}" C="${p[0].toFixed(9)}" D="${p[1].toFixed(9)}"/>`, name = xmlEsc(currentField || 'Feld');
-  let x = '<?xml version="1.0" encoding="UTF-8"?>\n<ISO11783_TaskData VersionMajor="4" VersionMinor="2" ManagementSoftwareManufacturer="AOG Feldeditor" ManagementSoftwareVersion="2.0" DataTransferOrigin="1">\n';
+  let x = '<?xml version="1.0" encoding="UTF-8"?>\n<ISO11783_TaskData VersionMajor="4" VersionMinor="2" ManagementSoftwareManufacturer="AOG Field Editor" ManagementSoftwareVersion="2.0" DataTransferOrigin="1">\n';
   x += `<PFD A="PFD1" C="${name}" D="${bnds[0] ? Math.round(area(bnds[0].pts)) : 0}">\n`;
   if (sel.includes('bnd')) items.bnd.forEach(it => {
     x += `<PLN A="1" B="${name}">\n`;

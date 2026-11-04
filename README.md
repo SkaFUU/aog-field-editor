@@ -4,7 +4,7 @@
 
 A browser-based editor for [AgOpenGPS](https://github.com/AgOpenGPS-Official/AgOpenGPS) fields. It opens the field folder directly, shows everything on a satellite map and writes the files back in AgOpenGPS format, with no detour through KML.
 
-**▶ Use it here: https://skafuu.github.io/aog-feldeditor/**
+**▶ Use it here: https://skafuu.github.io/aog-field-editor/**
 
 The editor is **a single HTML file**. It needs no installation and no server, and it never sends your field data anywhere. The only things loaded from the internet are the map tiles and the map library [Leaflet](https://leafletjs.com/). The interface is available in **English and German**: it follows your browser language, and you can switch with **DE | EN** at the top.
 
@@ -102,7 +102,7 @@ The layout works like Office: tabs at the top for **Field, Boundary, Tracks, Hea
 
 ## Usage
 
-1. Open **https://skafuu.github.io/aog-feldeditor/** in **Chrome or Edge**. Alternatively, download `index.html` and open it from your computer.
+1. Open **https://skafuu.github.io/aog-field-editor/** in **Chrome or Edge**. Alternatively, download `index.html` and open it from your computer.
 2. In the **Field** tab, click **"Choose AgOpenGPS folder"** and select `Documents\AgOpenGPS`.
 3. Click a field on the left, edit it, then click **"Save"** at the top.
 
@@ -145,11 +145,11 @@ Plain HTML, CSS and JavaScript – no build step, no framework (only [Leaflet](h
 | `js/16-ui.js` | Ribbon, side panels, controls, language switch |
 | `js/17-maps.js` | Official aerial images by country, your own maps |
 
-The files are loaded in this order and share their functions. `node tools/build-single.js` builds everything into a single `dist/aog-feldeditor.html`, e.g. to pass it on or to use it offline. Before publishing, `node tools/stamp.js` adds a content-based version to every CSS/JS link in `index.html` (`?v=…`), so browsers load changed files right away instead of from their cache.
+The files are loaded in this order and share their functions. `node tools/build-single.js` builds everything into a single `dist/aog-field-editor.html`, e.g. to pass it on or to use it offline. Before publishing, `node tools/stamp.js` adds a content-based version to every CSS/JS link in `index.html` (`?v=…`), so browsers load changed files right away instead of from their cache.
 
 ## Feedback
 
-Bugs and ideas are welcome as a [GitHub issue](https://github.com/SkaFUU/aog-feldeditor/issues) or in the [AgOpenGPS forum](https://discourse.agopengps.com). If a field doesn't load or looks wrong after saving, the files of that field help a lot.
+Bugs and ideas are welcome as a [GitHub issue](https://github.com/SkaFUU/aog-field-editor/issues) or in the [AgOpenGPS forum](https://discourse.agopengps.com). If a field doesn't load or looks wrong after saving, the files of that field help a lot.
 
 ## Disclaimer
 
