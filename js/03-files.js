@@ -234,14 +234,10 @@ function renderBndList() {
     row.append(nm);
     row.onclick = () => { active = active === i ? -1 : i; sel = -1; drawAll(); };   // erneuter Klick: nicht mehr bearbeiten
     if (i > 0) {
-      const lab = document.createElement('label'), cb = document.createElement('input');
-      cb.type = 'checkbox';
-      cb.checked = /^true$/i.test(b.flagLines[0] || '');
-      lab.title = t('driveThruTitle');
-      lab.onclick = ev => ev.stopPropagation();
-      cb.onchange = () => { b.flagLines = [cb.checked ? 'True' : 'False']; bndListDirty = true; unsaved = true; drawAll(); };
-      lab.append(cb, t('driveThru'));
-      row.append(lab);
+      const on = /^true$/i.test(b.flagLines[0] || ''), tg = document.createElement('button');
+      tg.type = 'button'; tg.className = 'tgl sm' + (on ? ' on' : ''); tg.title = t('driveThruTitle'); tg.textContent = t('driveThru');
+      tg.onclick = ev => { ev.stopPropagation(); b.flagLines = [on ? 'False' : 'True']; bndListDirty = true; unsaved = true; drawAll(); };
+      row.append(tg);
     }
     row.append(
       iconBtn(b.hidden ? 'eyeoff' : 'eye', t('visTitle'), () => { b.hidden = !b.hidden; drawAll(); }, b.hidden ? 'off' : ''),

@@ -123,11 +123,11 @@ function startRebuild() {
     }
   });
   has.forEach(id => {
-    const lab = document.createElement('label'), cb = document.createElement('input'), n = exCount(id);
-    lab.className = 'chkrow'; cb.type = 'checkbox'; cb.checked = true;
-    cb.onchange = () => { cb.checked ? pick.add(id) : pick.delete(id); updateToolbox(); };
-    lab.append(cb, ' ' + t('L_' + id) + (n > 1 && id !== 'headland' ? ` (${n})` : ''));
-    $('toolList').append(lab);
+    const b = document.createElement('button'), n = exCount(id);
+    b.type = 'button'; b.className = 'tgl on';
+    b.onclick = () => { pick.has(id) ? pick.delete(id) : pick.add(id); b.classList.toggle('on', pick.has(id)); updateToolbox(); };
+    b.textContent = t('L_' + id) + (n > 1 && id !== 'headland' ? ` (${n})` : '');
+    $('toolList').append(b);
   });
 }
 $('btnRebuild').onclick = () => { closeTool(); startRebuild(); };

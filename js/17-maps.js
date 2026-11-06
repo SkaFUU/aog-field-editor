@@ -74,9 +74,9 @@ function startMaps() {
   const cur = () => { for (const k in bases) if (map.hasLayer(bases[k])) return k; return 'esri'; };
   const row = (label, on, fn, del, sub) => {
     const r = document.createElement('div'); r.className = 'lrow';
-    const b = document.createElement('button'); b.type = 'button'; b.className = 'lbtn' + (on ? ' on' : '');
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'tgl' + (on ? ' on' : '');
     if (sub) b.style.paddingLeft = '18px';
-    b.innerHTML = `<svg class="ic"><use href="#i-${on ? 'chk' : 'chkoff'}"/></svg>`; b.append(label); b.onclick = fn;
+    b.textContent = label; b.onclick = fn;
     r.append(b); if (del) r.append(iconBtn('trash', t('delTitle'), del));
     return r;
   };

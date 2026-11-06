@@ -132,10 +132,16 @@ button.mini.off .ic { opacity:.6; }
 .big.c-del .ic { color:#ff5a5a; }
 .alabel { display:inline-block; transform:translate(14px,6px); background:rgba(0,0,0,.8); color:#00e5ff; font:600 11px system-ui,sans-serif; padding:1px 5px; border-radius:3px; white-space:nowrap; }
 #toolList select, #toolList input { width:100%; max-width:100%; min-width:0; box-sizing:border-box; }
-#toolList label.chkrow { display:flex; align-items:center; gap:6px; margin:4px 0; cursor:pointer; }
-#toolList label.chkrow input { width:auto; margin:0; }
+/* Umschalter statt Häkchen-Kästchen: aus = schlicht, an = grüner Hintergrund */
+button.tgl { display:flex; align-items:center; gap:6px; width:100%; min-width:0; margin:1px 0; padding:4px 8px; background:transparent; color:var(--muted);
+             font-size:12.5px; font-weight:400; text-align:left; border-radius:5px; white-space:nowrap; }
+button.tgl:hover { background:#3a3f46; color:var(--fg); }
+button.tgl.on { background:rgba(76,187,108,.24); color:var(--fg); box-shadow:inset 3px 0 0 var(--tab); }
+button.tgl.on:hover { background:rgba(76,187,108,.34); }
+button.tgl:disabled { opacity:.4; background:transparent; cursor:default; }
+button.tgl.sm { width:auto; flex:none; margin:0; padding:2px 7px; font-size:12px; }
 #props { overflow-x:hidden; }
-.scrollList .lbtn { width:100%; min-width:0; }
+.scrollList .tgl { width:100%; min-width:0; }
 .scrollList .ell { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width:0; }
 .scrollList { max-height:260px; overflow-y:auto; overflow-x:hidden; border:1px solid var(--line); border-radius:5px; padding:2px; margin:4px 0; }
 .mtab { width:100%; border-collapse:collapse; margin-top:6px; font-size:12px; font-variant-numeric:tabular-nums; }
@@ -154,8 +160,6 @@ button.mini.off .ic { opacity:.6; }
 .bndrow input { flex:1; min-width:0; padding:4px 6px; }
 .bndrow.off input { opacity:.45; text-decoration:line-through; }
 .bndrow .nm { flex:1; }
-.bndrow label { display:flex; gap:3px; align-items:center; font-size:12px; color:var(--muted); }
-.bndrow label input { width:auto; }
 .bndrow .mini { width:auto; margin:0; padding:2px 7px; font-size:12px; }
 #toolbox { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); z-index:1001; background:rgba(20,22,25,.93); color:#fff;
            padding:8px 10px; border-radius:8px; display:flex; gap:8px; align-items:center; justify-content:center; flex-wrap:wrap;

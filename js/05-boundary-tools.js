@@ -71,7 +71,7 @@ function updateToolbox() {
   $('toolBndWrap').style.display = tool.bndOption ? 'flex' : 'none';
   if (tool.bndOption) {
     $('toolBnd').disabled = !tool.bndPlan;
-    $('toolBnd').checked = moveBndPref && !!tool.bndPlan;
+    $('toolBnd').classList.toggle('on', moveBndPref && !!tool.bndPlan);
     $('toolBndTxt').textContent = t(tool.bndPlan ? 'moveBndToo' : 'moveBndNo');
   }
   const box = $('toolActions');
@@ -99,7 +99,7 @@ function finishTool() {
   tl.ok();
 }
 $('toolOk').onclick = finishTool;
-$('toolBnd').onchange = e => { moveBndPref = e.target.checked; };
+$('toolBnd').onclick = () => { moveBndPref = !moveBndPref; updateToolbox(); };
 $('toolCancel').onclick = closeTool;
 $('toolRange').oninput = e => { if (tool && tool.onRange) tool.onRange(+e.target.value); };
 map.on('dblclick', () => { if (tool && tool.onDbl) tool.onDbl(); });

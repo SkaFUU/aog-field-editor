@@ -159,9 +159,8 @@ function startExport() {
     const box = $('toolList'); box.innerHTML = '';
     EXP_LAYERS.forEach(id => {
       const n = items[id].length, b = document.createElement('button'), ok = usable(id), chk = ok && on.has(id);
-      b.className = 'lbtn' + (chk ? ' on' : ''); b.disabled = !ok; b.type = 'button';
-      b.innerHTML = `<svg class="ic"><use href="#i-${chk ? 'chk' : 'chkoff'}"/></svg>`;
-      b.append(expLabel(id) + (n ? ` (${n})` : ''));
+      b.className = 'tgl' + (chk ? ' on' : ''); b.disabled = !ok; b.type = 'button';
+      b.textContent = expLabel(id) + (n ? ` (${n})` : '');
       if (n && !ok) b.title = t('expIsoOnly');
       b.onclick = () => { on.has(id) ? on.delete(id) : on.add(id); list(); updateToolbox(); };
       box.append(b);

@@ -296,8 +296,7 @@ function startImport(res, fname) {
     const sc = document.createElement('div'); sc.className = 'scrollList'; box.append(sc);   // lange Listen scrollen, Hinweis und Knöpfe bleiben sichtbar
     its.slice(0, 400).forEach(it => {
       const b = document.createElement('button');
-      b.className = 'lbtn' + (it.on ? ' on' : ''); b.type = 'button';
-      b.innerHTML = `<svg class="ic"><use href="#i-${it.on ? 'chk' : 'chkoff'}"/></svg>`;
+      b.className = 'tgl' + (it.on ? ' on' : ''); b.type = 'button';
       const tx = document.createElement('span'); tx.className = 'ell';
       tx.textContent = (it.role ? expLabel(it.role) : t(it.ab ? 'impAB' : KL[it.kind])) + (it.name && it.name !== expLabel(it.role) ? ' · ' + it.name : '') + (it.kind === 'poly' ? ` (${fmtNum(it.ha, 2)} ha)` : '');
       b.append(tx); b.title = tx.textContent;
